@@ -30,10 +30,13 @@ namespace SFU.Mvc.Controllers
 			model.MyDate = this.MyDate;
 			model.Number = this.Number;
 			model.Wage = this.Wage;
-
-            LibrariesManager librariesManager = LibrariesManager.GetManager();
-            var image = librariesManager.GetImage(Guid.Parse(this.Images.ItemIdsOrdered[0]));
-			model.Images = image.MediaUrl;
+            
+			if(this.Images != null)
+			{
+                LibrariesManager librariesManager = LibrariesManager.GetManager();
+                var image = librariesManager.GetImage(Guid.Parse(this.Images.ItemIdsOrdered[0]));
+                model.Images = image.MediaUrl;
+            }            
 			return View("Index", model);
 		}
 
