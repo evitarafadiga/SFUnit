@@ -4,13 +4,27 @@
 </auto-generated>
 ------------------------------------------------------------------------------ */
 
+using System;
 using System.Web.Mvc;
 using Telerik.Sitefinity.Mvc;
 
 namespace SFU.Mvc.Models
 {
+	public enum Enumeration
+	{ 
+		Valor1,
+        Valor2,
+        Valor3,
+        Valor4
+    }
 	public class MyNewWidgetModel
 	{
 		public string Message { get; set; }
+		public bool Flag { get; set; }
+		public Enumeration Enum { get; set;}
+		public int Number { get; set; }
+		public double Wage { get; set; }
+		public DateTime MyDate { get; set; }
+		public string Images { get; set; }
 	}
 }

@@ -4,14 +4,20 @@
 </auto-generated>
 ------------------------------------------------------------------------------ */
 
+using Progress.Sitefinity.Renderer.Designers.Attributes;
+using Progress.Sitefinity.Renderer.Entities.Content;
 using SFU.Mvc.Models;
+using System;
+using System.ComponentModel;
 using System.Web.Mvc;
+using Telerik.Sitefinity.Modules.Libraries;
 using Telerik.Sitefinity.Mvc;
 using Telerik.Sitefinity.Personalization;
+using Telerik.Sitefinity.Libraries.Model;
 
 namespace SFU.Mvc.Controllers
 {
-	[ControllerToolboxItem(Name = "MyNewWidget_MVC", Title = "MyNewWidget", SectionName = "CustomWidgets")]
+	[ControllerToolboxItem(Name = "MyNewWidget", Title = "My New Widget", SectionName = "SFU")]
 	public class MyNewWidgetController : Controller, IPersonalizable
 	{
 		// GET: MyNewWidget
@@ -19,7 +25,21 @@ namespace SFU.Mvc.Controllers
 		{
 			var model = new MyNewWidgetModel();
 			model.Message = this.Message;
-			return View(model);
+			model.Enum = this.Enum;
+			model.Flag = this.Flag;
+			model.MyDate = this.MyDate;
+			model.Number = this.Number;
+			model.Wage = this.Wage;
+
+            LibrariesManager librariesManager = LibrariesManager.GetManager();
+            var image = librariesManager.GetImage(Guid.Parse(this.Images.ItemIdsOrdered[0]));
+			model.Images = image.MediaUrl;
+			return View("Index", model);
+		}
+
+		public ActionResult NewTest()
+		{
+			return View("NewTest");
 		}
 		
         protected override void HandleUnknownAction(string actionName)
@@ -28,5 +48,13 @@ namespace SFU.Mvc.Controllers
         }
 
 		public string Message { get; set; }
+		public bool Flag { get; set; }
+		public Enumeration Enum { get; set; }
+		public int Number { get; set; }
+		[Browsable(false)]
+		public double Wage { get; set; }
+		public DateTime MyDate { get; set; }
+		[Content(Type = KnownContentTypes.Images)]
+		public MixedContentContext Images { get; set; }
 	}
 }
