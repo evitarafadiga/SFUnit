@@ -1,0 +1,6 @@
+﻿{
+  "priority": 2,
+  "hidden": true,
+  "components": ["sf-image"],
+  "scripts": ["sf-date-time-picker"]
+}

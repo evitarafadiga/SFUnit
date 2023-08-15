@@ -36,7 +36,8 @@ namespace SFU.Mvc.Controllers
                 LibrariesManager librariesManager = LibrariesManager.GetManager();
                 var image = librariesManager.GetImage(Guid.Parse(this.Images.ItemIdsOrdered[0]));
                 model.Images = image.MediaUrl;
-            }            
+            }
+			
 			return View("Index", model);
 		}
 

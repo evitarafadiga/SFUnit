@@ -1,0 +1,34 @@
+﻿<div>
+    Custom Designer view to edit My New Widget as an Admin User
+</div>
+<fieldset>
+    <p>
+        <label for="message">Message</label>
+        <input id="message" type="text" ng-model="properties.Message.PropertyValue" />
+    </p>
+    <p>
+        <label for="flag">Flag</label>
+        <input id="flag" type="text" ng-model="properties.Flag.PropertyValue" />
+    </p>
+    <p>
+        <label for="enum">Enumerator</label>
+        <select id="message" type="text" ng-model="properties.Enum.PropertyValue">
+            <option value="Valor1">Valor 1</option>
+            <option value="Valor2">Valor 2</option>
+            <option value="Valor3">Valor 3</option>
+            <option value="Valor4">Valor 4</option>
+        </select>
+    </p>
+    <p>
+        <label for="mydate"> Select the date</label>
+        <sf-date-time-picker id="mydate" ng-model="properties.MyDate.PropertyValue" sf-show-meridian="true" sf-hour-step="3"></sf-date-time-picker>
+    </p>
+    <p>
+        <label for="number">Number</label>
+        <input id="number" type="number" ng-model="properties.Number.PropertyValue" />
+    </p>
+    <p>
+        <label for="wage">Wage</label>
+        <input id="wage" type="number" ng-model="properties.Wage.PropertyValue" />
+    </p>
+</fieldset>
